@@ -1,6 +1,6 @@
 import 'dart:io';
-import '../lib/models/livro.dart';
-import '../lib/services/biblioteca.dart';
+import 'models/livro.dart';
+import 'services/biblioteca.dart';
 
 void main() {
   final biblioteca = Biblioteca();
@@ -19,16 +19,16 @@ void main() {
 
     switch (opcao) {
       case 1:
-        biblioteca.cadastrar();
+        cadastrarLivro(biblioteca);
         break;
       case 2:
         biblioteca.listar();
         break;
       case 3:
-        biblioteca.atualizar();
+        atualizarLivro(biblioteca);
         break;
       case 4:
-        biblioteca.remover();
+        removerLivro(biblioteca);
         break;
       case 5:
         print("Saindo...");
@@ -55,4 +55,27 @@ void cadastrarLivro(Biblioteca biblioteca) {
   biblioteca.cadastrar(
     Livro(id: id, titulo: titulo, autor: autor, ano: ano),
   );
+}
+
+void atualizarLivro(Biblioteca biblioteca) {
+  stdout.write("Digite o ID do livro: ");
+  String id = stdin.readLineSync()!;
+
+  stdout.write("Novo título: ");
+  String titulo = stdin.readLineSync()!;
+
+  stdout.write("Novo autor: ");
+  String autor = stdin.readLineSync()!;
+
+  stdout.write("Novo ano: ");
+  int ano = int.tryParse(stdin.readLineSync()!) ?? 0;
+
+  biblioteca.atualizar(id, titulo, autor, ano);
+}
+
+void removerLivro(Biblioteca biblioteca) {
+  stdout.write("Digite o ID do livro: ");
+  String id = stdin.readLineSync()!;
+
+  biblioteca.remover(id);
 }
