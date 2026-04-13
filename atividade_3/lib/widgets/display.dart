@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class DisplayWidget extends StatelessWidget {
   final String display;
 
-  DisplayWidget({required this.display});
+  const DisplayWidget({super.key, required this.display});
 
   @override
   Widget build(BuildContext context) {

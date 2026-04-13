@@ -4,7 +4,7 @@ class BotaoWidget extends StatelessWidget {
   final String texto;
   final Function(String) onClick;
 
-  BotaoWidget({required this.texto, required this.onClick});
+  const BotaoWidget({super.key, required this.texto, required this.onClick});
 
   @override
   Widget build(BuildContext context) {

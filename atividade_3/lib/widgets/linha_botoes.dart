@@ -5,7 +5,7 @@ class LinhaBotoes extends StatelessWidget {
   final List<String> botoes;
   final Function(String) onClick;
 
-  LinhaBotoes(this.botoes, this.onClick);
+  const LinhaBotoes(this.botoes, this.onClick, {super.key});
 
   @override
   Widget build(BuildContext context) {
