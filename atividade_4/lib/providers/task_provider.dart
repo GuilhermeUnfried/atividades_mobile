@@ -7,7 +7,8 @@ class TaskNotifier extends StateNotifier<List<Task>> {
   void addTask(String title) {
     state = [...state, Task(title: title)];
   }
-
+  
+                                             
   void removeTask(Task task) {
     state = state.where((t) => t != task).toList();
   }
